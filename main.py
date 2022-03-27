@@ -13,17 +13,17 @@ class Alphabet:
         print(f'Алфавит - {self.lang}, количество букв - {len(self.letters)}')
 
 class EngAlphabet(Alphabet):
-    def __init__(self):
-        super().__init__()
-        self.__letters_num = self.letters_num()
+    def __init__(self, lang, letters):
+        super().__init__(lang, letters)
+        self.letters_num = len(letters)/2
 
     def is_en_letter(self, a):
         if (a in self.letters) & (self.lang == 'en'):
-            print('Это буква английского алфавита.')
+            print(f'{a} - это буква английского алфавита.')
         else:
-            print('Это буква НЕ английского алфавита.')
+            print(f'{a} - это буква НЕ английского алфавита.')
     def letters_num(self):
-        print(f'Алфавит - {self.lang}, количество букв - {len(self.__letters_num)}')
+        print(f'Алфавит - {self.lang}, количество букв - {self.letters_num}')
 
     @staticmethod
     def example():
@@ -31,4 +31,7 @@ class EngAlphabet(Alphabet):
 
 alphaEn = EngAlphabet('en', string.ascii_letters)
 alphaEn.print_letters()
-alphaEn.letters_num()
+#alphaEn.letters_num()
+alphaEn.is_en_letter('F')
+alphaEn.is_en_letter('Щ')
+alphaEn.example()
